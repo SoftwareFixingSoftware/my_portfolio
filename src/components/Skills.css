@@ -1,0 +1,126 @@
+/* Add this to Skills.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.skills-container {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 2rem;
+}
+
+.skills-content {
+  padding: 2rem;
+  min-height: 400px; /* Ensures consistent height across tabs */
+}
+.skills-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(34, 255, 85, 0.2);
+}
+
+.skill-tab {
+  flex: 1;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.skill-tab.active {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.skill-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.skill-tab:hover {
+  background: rgba(34, 255, 85, 0.05);
+}
+
+.skills-content {
+  padding: 2rem;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  margin-bottom: 1.5rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.skill-percent {
+  color: var(--accent-color);
+}
+
+.bar-bg {
+  height: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--accent-color);
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color), #00a8ff);
+  position: relative;
+}
+
+.bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  animation: scanning 2s linear infinite;
+}
+
+@keyframes scanning {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (max-width: 768px) {
+  .skills-tabs {
+    flex-direction: column;
+  }
+  
+  .skill-tab.active::after {
+    height: 1px;
+    width: 50px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,197 @@
+/* Hero.css */
+#home {
+  background-color: #0a0a0a;
+  background-image: 
+    linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%231a1a1a" d="M0 0 L100 0 L100 100 L0 100 Z" /><path fill="none" stroke="%2322ff55" stroke-width="0.5" stroke-dasharray="2,2" d="M0 0 L100 100 M100 0 L0 100" /></svg>');
+  color: #e0e0e0;
+  padding: 4rem 0;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.hero-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-content h2 span {
+  color: var(--accent-color);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-content h2 span::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  animation: blink 1.5s infinite step-end;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-content p {
+  font-family: 'Courier New', monospace;
+  color: #22ff55;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px rgba(34, 255, 85, 0.3);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-content p::after {
+  content: '|';
+  position: absolute;
+  right: -10px;
+  animation: cursor 1s infinite;
+}
+
+@keyframes cursor {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: var(--accent-color);
+  border-radius: 4px;
+  border: 2px solid var(--accent-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: rgba(34, 255, 85, 0.1);
+  box-shadow: 0 0 10px rgba(34, 255, 85, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(34, 255, 85, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.hero-image {
+  flex: 0 0 300px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 8px;
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 0 20px rgba(34, 255, 85, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover img {
+  transform: scale(1.03);
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px dashed var(--accent-color);
+  border-radius: 12px;
+  opacity: 0.5;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Terminal-like effect */
+.terminal-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-family: 'Courier New', monospace;
+  color: #22ff55;
+  font-size: 0.9rem;
+}
+
+.terminal-line::before {
+  content: '>_';
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 2rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-image {
+    flex: 0 0 200px;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-content p::after {
+    display: none;
+  }
+}

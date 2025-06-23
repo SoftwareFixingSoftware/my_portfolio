@@ -1,0 +1,89 @@
+.timeline {
+  position: relative;
+  max-width: 1400px;
+  /* Remove height: 50% - let it grow with content */
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+.timeline-card {
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 5px 25px rgba(34, 255, 85, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+  width: 600px;
+  /* Remove min-height or reduce it significantly */
+  min-height: 0; /* Or set to a smaller value if you want some minimum */
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: var(--accent-color);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+  opacity: 0.3;
+}
+
+.timeline-item {
+  padding: 20px 30px; /* Adjusted padding */
+  position: relative;
+  width: 48%; /* Changed from 50% to create more overlap */
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 52%; /* Adjusted to match new width */
+}
+
+ 
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(34, 255, 85, 0.2);
+  border-color: rgba(34, 255, 85, 0.8);
+}
+.experience-list li {
+  color: green;
+  /* Optional for a smoother, clean look */
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Rest of your existing styles remain the same... */
+
+@media (max-width: 768px) {
+  .timeline {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .timeline::before {
+    left: 31px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-card {
+    min-height: auto; /* Remove fixed height on mobile */
+  }
+}
